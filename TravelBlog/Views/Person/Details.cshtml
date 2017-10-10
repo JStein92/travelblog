@@ -1,0 +1,14 @@
+﻿@model TravelBlog.Models.Person
+
+<h2>Details for @Html.DisplayFor(model => model.Name)</h2>
+
+
+@foreach(var location in Model.LocationPerson.Location)
+{
+    <p>
+        Location: @location.Name
+    </p>
+}
+
+@Html.ActionLink("Back Home", "Index", "Location")
+

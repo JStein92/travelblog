@@ -1,0 +1,13 @@
+﻿@model TravelBlog.Models.Location
+
+<h2>Details for @Html.DisplayFor(model => model.Name)</h2>
+
+@foreach(var experience in Model.Experiences)
+{
+    <p>
+	    Experience: @experience.Description | @Html.ActionLink("Update", "Update", "Experience", new { id = experience.ExperienceId}) | @Html.ActionLink("Delete", "Delete", "Experience", new { id = experience.ExperienceId })
+    </p>
+}
+
+@Html.ActionLink("Back Home", "Index")
+

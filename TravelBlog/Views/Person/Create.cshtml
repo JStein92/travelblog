@@ -1,0 +1,25 @@
+﻿@model TravelBlog.Models.Person
+@{
+
+}
+
+<h2>Create new Person</h2>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        <p>Describe your Person</p>
+
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name)
+
+        @Html.LabelFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email)
+
+        <br/>
+
+        <br/>
+
+        <input type="submit" value="Add this experience" />
+    }
+
+<p>@Html.ActionLink("Back to list", "Index", "Location")</p>

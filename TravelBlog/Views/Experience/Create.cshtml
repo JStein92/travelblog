@@ -1,0 +1,17 @@
+﻿@model TravelBlog.Models.Experience
+@{
+
+}
+
+<h2>Create new Experience for @ViewBag.currentLocation.Name</h2>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        <p>Describe your experience</p>
+
+        @Html.TextAreaFor(model => model.Description)
+        @Html.HiddenFor(model => model.LocationId, new {@value = ViewBag.currentLocation.LocationId})
+        <br/>
+        <input type="submit" value="Add this experience" />
+    }
+<p>@Html.ActionLink("Back to list", "Index", "Location")</p>

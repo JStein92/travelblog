@@ -1,0 +1,13 @@
+﻿@model TravelBlog.Models.Person
+
+<h2>Are you sure you want to kill this person?</h2>
+
+<hr />
+
+@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+@Html.DisplayNameFor(model => model.Email): @Html.DisplayFor(model => model.Email)
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" />
+}
+<p>@Html.ActionLink("Back to list", "Index", "Location")</p>
