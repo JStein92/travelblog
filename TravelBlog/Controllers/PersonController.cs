@@ -22,6 +22,7 @@ namespace TravelBlog.Controllers
 
         public IActionResult Create()
         {
+            ViewBag.Locations = new SelectList(db.Locations, "LocationId", "Name");
             return View();
         }
 
@@ -63,7 +64,10 @@ namespace TravelBlog.Controllers
 
         public IActionResult Details(int id)
         {
-            var myPerson = db.People.FirstOrDefault(People => People.PersonId == id);
+            var myPerson = db.People
+                    .Include(person => person.LocationPerson)
+                    .ThenInclude(join => join.Location)
+                .FirstOrDefault(People => People.PersonId == id);
 
             return View(myPerson);
         }

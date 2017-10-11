@@ -12,6 +12,7 @@ namespace TravelBlog.Models
         public string Name { get; set;  }
         public string Description { get; set; }
         public virtual ICollection<Experience> Experiences { get; set; }
+        //Many to many entity:
         public virtual ICollection<LocationPerson> LocationPerson { get; set; }
 
     }

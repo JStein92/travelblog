@@ -21,7 +21,6 @@
          <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0" />
       </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Views\Location\" />
     <Folder Include="Views\Experience\" />
     <Folder Include="Views\Person\" />

@@ -8,34 +8,13 @@ namespace TravelBlog.Models
         public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<Experience> Experiences { get; set; }
         public virtual DbSet<Person> People { get; set; }
+        public virtual DbSet<LocationPerson> LocationPerson { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ExperiencePerson>()
-                        .HasKey(item => new { item.ExperienceId, item.PersonId });
-
-            modelBuilder.Entity<ExperiencePerson>()
-                        .HasOne(item => item.Experience)
-                        .WithMany(item => item.ExperiencePerson)
-                        .HasForeignKey(item => item.ExperienceId);
-
-            modelBuilder.Entity<ExperiencePerson>()
-                        .HasOne(item => item.Person)
-                        .WithMany(item => item.ExperiencePerson)
-                        .HasForeignKey(item => item.PersonId);
-
+            //Location to Person Many-to-Many:
             modelBuilder.Entity<LocationPerson>()
-                        .HasKey(item => new { item.LocationId, item.PersonId });
-
-            modelBuilder.Entity<LocationPerson>()
-                        .HasOne(item => item.Location)
-                        .WithMany(item => item.LocationPerson)
-                        .HasForeignKey(item => item.LocationId);
-
-            modelBuilder.Entity<LocationPerson>()
-                        .HasOne(item => item.Person)
-                        .WithMany(item => item.LocationPerson)
-                        .HasForeignKey(item => item.PersonId);
+                        .HasKey(x => new { x.LocationId, x.PersonId });
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
