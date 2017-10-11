@@ -48,6 +48,8 @@ namespace TravelBlog
                     template: "{controller=Location}/{action=Index}/{id?}");
             });
 
+            app.UseStaticFiles();
+
 
             app.Run(async (context) =>
             {

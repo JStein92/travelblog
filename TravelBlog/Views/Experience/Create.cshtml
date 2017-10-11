@@ -7,11 +7,13 @@
     <hr />
     @using (Html.BeginForm())
     {
-        <p>Describe your experience</p>
+        <h4>Describe your experience</h4>
 
-        @Html.TextAreaFor(model => model.Description)
+        @Html.TextAreaFor(model => model.Description, new {rows="4", cols="80", @class="text-area"})
         @Html.HiddenFor(model => model.LocationId, new {@value = ViewBag.currentLocation.LocationId})
         <br/>
-        <input type="submit" value="Add this experience" />
+        <input type="submit" value="Add this experience" class="btn btn-success"/>
     }
-<p>@Html.ActionLink("Back to list", "Index", "Location")</p>
+    <br>
+
+ <input type="button" class="btn btn-warning" value="Back to Locations" onclick="location.href='@Url.Action("Index", "Location")'" />

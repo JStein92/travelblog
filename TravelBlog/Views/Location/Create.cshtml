@@ -1,15 +1,17 @@
 ﻿@model TravelBlog.Models.Location
 
-<h2>Create</h2>
+   <h2>Add a new Travel Location</h2>
     <hr />
-    <h4>Add a new task</h4>
+ 
     @using (Html.BeginForm())
     {
         @Html.LabelFor(model => model.Name)
-        @Html.TextBoxFor(model => model.Name)
-
+        @Html.TextBoxFor(model => model.Name, new {@class ="form-control"})
+        <br/>
         @Html.LabelFor(model => model.Description)
-        @Html.TextBoxFor(model => model.Description)
-        <input type="submit" value="Add new task" />
+        @Html.TextBoxFor(model => model.Description, new {@class ="form-control"})
+        <br/>
+        <input type="submit" class="btn btn-success" value="Add!" />
     }
-<p>@Html.ActionLink("Back to list", "Index")</p>
+    <br/>
+<p>@Html.ActionLink("Back to Locations", "Index")</p>
