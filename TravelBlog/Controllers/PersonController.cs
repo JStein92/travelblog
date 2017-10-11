@@ -22,13 +22,15 @@ namespace TravelBlog.Controllers
 
         public IActionResult Create()
         {
-            return View();
+			ViewBag.Locations = new SelectList(db.Locations, "LocationId", "Name");
+			return View();
         }
 
         [HttpPost]
         public IActionResult Create(Person Person)
         {
             db.People.Add(Person);
+            //db.LocationPerson.Add(new LocationPerson(Person.PersonId, Person.LocationId));
             db.SaveChanges();
             return RedirectToAction("Index", "Location");
         }
@@ -63,9 +65,12 @@ namespace TravelBlog.Controllers
 
         public IActionResult Details(int id)
         {
-            var myPerson = db.People.FirstOrDefault(People => People.PersonId == id);
+			var myPerson = db.People
+                     .Include(person => person.LocationPerson)
+                     .ThenInclude(join => join.Location)
+                     .FirstOrDefault(People => People.PersonId == id);
 
-            return View(myPerson);
+			return View(myPerson);
         }
     }
 }

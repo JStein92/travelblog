@@ -31,19 +31,6 @@ namespace TravelBlog.Migrations
                     b.ToTable("experiences");
                 });
 
-            modelBuilder.Entity("TravelBlog.Models.ExperiencePerson", b =>
-                {
-                    b.Property<int>("ExperienceId");
-
-                    b.Property<int>("PersonId");
-
-                    b.HasKey("ExperienceId", "PersonId");
-
-                    b.HasIndex("PersonId");
-
-                    b.ToTable("ExperiencePerson");
-                });
-
             modelBuilder.Entity("TravelBlog.Models.Location", b =>
                 {
                     b.Property<int>("LocationId")
@@ -90,19 +77,6 @@ namespace TravelBlog.Migrations
                     b.HasOne("TravelBlog.Models.Location", "Location")
                         .WithMany("Experiences")
                         .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TravelBlog.Models.ExperiencePerson", b =>
-                {
-                    b.HasOne("TravelBlog.Models.Experience", "Experience")
-                        .WithMany("ExperiencePerson")
-                        .HasForeignKey("ExperienceId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TravelBlog.Models.Person", "Person")
-                        .WithMany("ExperiencePerson")
-                        .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

@@ -21,7 +21,6 @@
          <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0" />
       </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Views\Location\" />
     <Folder Include="Views\Experience\" />
     <Folder Include="Views\Person\" />
@@ -29,6 +28,13 @@
   <ItemGroup>
     <Compile Remove="Controllers\HomeController.cs" />
     <Compile Remove="Models\EmptyClass.cs" />
+    <Compile Remove="Migrations\20171010214804_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20171010214804_Initial.cs" />
+    <Compile Remove="Migrations\20171011155543_Simple.Designer.cs" />
+    <Compile Remove="Migrations\20171011155543_Simple.cs" />
+    <Compile Remove="Migrations\20171011162914_Keyless.Designer.cs" />
+    <Compile Remove="Migrations\20171011162914_Keyless.cs" />
+    <Compile Remove="Migrations\TravelBlogContextModelSnapshot.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Views\Home\About.cshtml" />

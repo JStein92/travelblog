@@ -17,7 +17,7 @@ namespace TravelBlog.Controllers
         private TravelBlogContext db = new TravelBlogContext();
         public IActionResult Index()
         {
-            ViewBag.people = db.People.ToList();
+            
             return View(db.Locations.ToList());
         }
 

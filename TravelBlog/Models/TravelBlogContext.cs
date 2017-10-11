@@ -7,17 +7,16 @@ namespace TravelBlog.Models
     {
 
         public virtual DbSet<Location> Locations { get; set; }
-		public virtual DbSet<Experience> Experiences { get; set; }
-		public virtual DbSet<Person> People { get; set; }
-		public virtual DbSet<LocationPerson> LocationPerson { get; set; }
+        public virtual DbSet<Experience> Experiences { get; set; }
+        public virtual DbSet<Person> People { get; set; }
+        public virtual DbSet<LocationPerson> LocationPerson { get; set; }
 
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
-		{
-			//Location to Person Many-to-Many:
-			modelBuilder.Entity<LocationPerson>()
-						.HasKey(x => new { x.LocationId, x.PersonId });
-		}
-
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //Location to Person Many-to-Many:
+            modelBuilder.Entity<LocationPerson>()
+                        .HasKey(x => new { x.LocationId, x.PersonId });
+        }
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder

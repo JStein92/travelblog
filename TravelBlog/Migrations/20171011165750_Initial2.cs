@@ -80,39 +80,10 @@ namespace TravelBlog.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "ExperiencePerson",
-                columns: table => new
-                {
-                    ExperienceId = table.Column<int>(nullable: false),
-                    PersonId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ExperiencePerson", x => new { x.ExperienceId, x.PersonId });
-                    table.ForeignKey(
-                        name: "FK_ExperiencePerson_experiences_ExperienceId",
-                        column: x => x.ExperienceId,
-                        principalTable: "experiences",
-                        principalColumn: "ExperienceId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ExperiencePerson_People_PersonId",
-                        column: x => x.PersonId,
-                        principalTable: "People",
-                        principalColumn: "PersonId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_experiences_LocationId",
                 table: "experiences",
                 column: "LocationId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ExperiencePerson_PersonId",
-                table: "ExperiencePerson",
-                column: "PersonId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_LocationPerson_PersonId",
@@ -123,19 +94,16 @@ namespace TravelBlog.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ExperiencePerson");
+                name: "experiences");
 
             migrationBuilder.DropTable(
                 name: "LocationPerson");
 
             migrationBuilder.DropTable(
-                name: "experiences");
+                name: "Locations");
 
             migrationBuilder.DropTable(
                 name: "People");
-
-            migrationBuilder.DropTable(
-                name: "Locations");
         }
     }
 }

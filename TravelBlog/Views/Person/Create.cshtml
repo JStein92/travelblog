@@ -15,8 +15,11 @@
         @Html.LabelFor(model => model.Email)
         @Html.TextBoxFor(model => model.Email)
 
-        <br/>
+    
 
+        <br/>
+        @Html.LabelFor(model => model.LocationPerson)
+        @Html.DropDownList("Locations")
         <br/>
 
         <input type="submit" value="Add this experience" />

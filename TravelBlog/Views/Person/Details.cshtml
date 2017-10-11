@@ -2,12 +2,9 @@
 
 <h2>Details for @Html.DisplayFor(model => model.Name)</h2>
 
-
-@foreach(var location in Model.LocationPerson.Location)
+@foreach(var join in Model.LocationPerson)
 {
-    <p>
-        Location: @location.Name
-    </p>
+    Location: @join.Location.Name
 }
 
 @Html.ActionLink("Back Home", "Index", "Location")

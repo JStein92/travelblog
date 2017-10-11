@@ -8,7 +8,7 @@ using TravelBlog.Models;
 namespace TravelBlog.Migrations
 {
     [DbContext(typeof(TravelBlogContext))]
-    [Migration("20171010214804_Initial")]
+    [Migration("20171011174958_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,19 +30,6 @@ namespace TravelBlog.Migrations
                     b.HasIndex("LocationId");
 
                     b.ToTable("experiences");
-                });
-
-            modelBuilder.Entity("TravelBlog.Models.ExperiencePerson", b =>
-                {
-                    b.Property<int>("ExperienceId");
-
-                    b.Property<int>("PersonId");
-
-                    b.HasKey("ExperienceId", "PersonId");
-
-                    b.HasIndex("PersonId");
-
-                    b.ToTable("ExperiencePerson");
                 });
 
             modelBuilder.Entity("TravelBlog.Models.Location", b =>
@@ -91,19 +78,6 @@ namespace TravelBlog.Migrations
                     b.HasOne("TravelBlog.Models.Location", "Location")
                         .WithMany("Experiences")
                         .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TravelBlog.Models.ExperiencePerson", b =>
-                {
-                    b.HasOne("TravelBlog.Models.Experience", "Experience")
-                        .WithMany("ExperiencePerson")
-                        .HasForeignKey("ExperienceId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TravelBlog.Models.Person", "Person")
-                        .WithMany("ExperiencePerson")
-                        .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
