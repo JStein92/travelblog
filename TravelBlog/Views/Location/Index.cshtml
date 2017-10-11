@@ -31,7 +31,7 @@
 			{
 			    <tr> 
                     <td>
-                        @Html.ActionLink(location.Name, "Details", new { id = location.LocationId })
+                        @Html.ActionLink(location.Name, "Details", new { LocationId = location.LocationId })
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => location.Description)

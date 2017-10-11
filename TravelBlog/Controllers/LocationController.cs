@@ -61,9 +61,11 @@ namespace TravelBlog.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Details(int id)
+        public IActionResult Details(int LocationId)
         {
-            var myLocation = db.Locations.Include(Location => Location.Experiences).FirstOrDefault(locations => locations.LocationId == id);
+            var myLocation = db.Locations
+                               .Include(x => x.Experiences)
+                               .FirstOrDefault(x => x.LocationId == LocationId);
 
             return View(myLocation);
         }

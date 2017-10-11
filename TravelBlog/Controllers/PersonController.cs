@@ -24,6 +24,7 @@ namespace TravelBlog.Controllers
         {
 			ViewBag.Locations = new SelectList(db.Locations, "LocationId", "Name");
 			return View();
+
         }
 
         [HttpPost]
@@ -69,6 +70,7 @@ namespace TravelBlog.Controllers
                      .Include(person => person.LocationPerson)
                      .ThenInclude(join => join.Location)
                      .FirstOrDefault(People => People.PersonId == id);
+
 
 			return View(myPerson);
         }

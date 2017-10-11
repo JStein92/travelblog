@@ -2,9 +2,18 @@
 
 <h2>Details for @Html.DisplayFor(model => model.Name)</h2>
 
+<<<<<<< HEAD
 @foreach(var join in Model.LocationPerson)
 {
     Location: @join.Location.Name
+=======
+
+@foreach(var join in Model.LocationPerson)
+{
+    <p>
+        Location: @join.Location.Name
+    </p>
+>>>>>>> 995b09ebcde5ac7f8f4e7f73bc87adb01dff7ea0
 }
 
 @Html.ActionLink("Back Home", "Index", "Location")

@@ -30,7 +30,7 @@ namespace TravelBlog.Controllers
         [HttpPost]
         public IActionResult Create(Experience Experience)
         {
-            db.Experiences.Add(Experience);
+          //  db.Experiences.Add(Experience);
             db.SaveChanges();
             return RedirectToAction("Index", "Location");
         }

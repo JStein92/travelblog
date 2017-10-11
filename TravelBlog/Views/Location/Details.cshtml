@@ -5,7 +5,9 @@
 @foreach(var experience in Model.Experiences)
 {
     <p>
-	    Experience: @experience.Description | @Html.ActionLink("Update", "Update", "Experience", new { id = experience.ExperienceId}) | @Html.ActionLink("Delete", "Delete", "Experience", new { id = experience.ExperienceId })
+	    Experience: @experience.Description | 
+	                @Html.ActionLink("Update", "Update", "Experience", new { id = experience.ExperienceId}) | 
+	                @Html.ActionLink("Delete", "Delete", "Experience", new { id = experience.ExperienceId })
     </p>
 }
 
